@@ -4,7 +4,7 @@ $("#submit").on("click",function(event){
    let burgerName= $("textarea[name=bname]").val().trim()
     
 
-   
+
     // alert(burgerName)
     $.ajax("/api/burgers", {
         type: "POST",
@@ -50,6 +50,26 @@ $("#update").on("click",function(event){
     data:{
       update_name:value
     }
+  })
+  .then(
+    function() {
+      // Reload the page to get the updated list
+      location.reload();
+    }
+  )
+  .catch(console.log('stopped here'))
+
+})
+
+$(".delete").on("click",function(event){
+  event.preventDefault();
+
+  let id=$(this).attr('data-deleteid')
+  
+  $.ajax({
+    url:`/api/delete/${id}`,
+    type:'DELETE',
+   
   })
   .then(
     function() {

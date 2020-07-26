@@ -75,20 +75,21 @@ router.post("/api/burgers", function(req, res) {
   });
 
   //Delete burger
-//     router.delete("/api/burger/:id", function(req, res) {
-//     connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function(err, result) {
-//       if (err) {
-        
-//         return res.status(500).end();
-//       }
-//       else if (result.affectedRows === 0) {
-        
-//         return res.status(404).end();
-//       }
-//       res.status(200).end();
-  
-//     });
-//   });
+    router.delete("/api/delete/:id", function(req, res) {
+    let id=req.params.id
+    orm.deleteOne(id,function(error,data){
+        if (error){
+            return res.status(501).json({
+                message: "burger Name was not changed on database"
+            });  
+        }
+        else if (res.affectededRows === 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.status(404).end();
+          }
+          res.status(200).end();
+    })
+  });
   
 
 

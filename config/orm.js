@@ -28,7 +28,15 @@ const orm={
             if(err) cb(err,null);
             cb(null,data)
         });
+    },
+    deleteOne: function(id,cb){
+        let sql= `DELETE FROM burgers WHERE id = ${id}`
+        connection.query(sql,function(err, data) {
+            if(err) cb(err,null);
+            cb(null,data)
+        });
     }
+
 
 };
 

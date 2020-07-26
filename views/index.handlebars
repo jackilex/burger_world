@@ -42,6 +42,8 @@
 
   <li>
     <p>
+    <button class="delete" data-deleteid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >X</button>
+    
       {{key}}. {{value.name}}
 
       <button class="eat" data-planid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >Return this {{value.name}} burger!</button>
