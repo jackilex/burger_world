@@ -3,7 +3,9 @@ $("#submit").on("click",function(event){
     
    let burgerName= $("textarea[name=bname]").val().trim()
     
-    alert(burgerName)
+
+   
+    // alert(burgerName)
     $.ajax("/api/burgers", {
         type: "POST",
         data: {
