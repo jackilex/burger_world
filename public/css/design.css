@@ -1,0 +1,48 @@
+body{
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%
+
+}
+
+h1{
+    display: flex;
+    align-self: center;
+    margin-bottom: 50px;
+}
+
+label{
+    font-weight: bolder;
+    font-size: larger;
+}
+textarea{
+    width: 200px;
+    margin-bottom: 10%;
+}
+.first{
+display: flex;
+align-self: center;
+
+}
+
+.second{
+background-color: yellow;
+}
+
+.third{
+    background-color: tomato;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    justify-content:space-around;
+}
+
+.fourth{
+    display: flex;
+    /* flex-direction: column; */
+    margin-top: 10%;
+    }

@@ -1,7 +1,83 @@
+<h1>Burger World</h1>
 
-{{#each names as |value key|}}
+{{!-- form to add burger to database --}}
+<div class="first">
+<form id="addBurger"  class="button-size">
+  <label for="bname">Add your Burger Name:</label><br>
+  <textarea type="text" id="bname" name="bname"></textarea><br>
+  <button id="submit" type="submit">Submit</button>
+</form><br>
+</div>
 
-    <h2>{{key}} {{this}}</h2>
+    <div class="container">
+<div class="second">
+<ul>
     
-{{/each}}
+  {{#each data as |value key|}}
+    {{#unless value.eaten_burger}}
+  <li class="list">
+    <p>
+      {{key}}. {{value.name}} Burger  
+
+      <button class="eat" data-planid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >Eat this {{value.name}} burger!</button>
+    </p>
+  </li>
+  {{/unless}}
+  {{/each}}
+  
+</ul>
+</div>
+
+
+<div class="third">
+  
+
+    <h2>Burger was devoured</h2>
+  
+<ul>
+    
+  {{#each data as |value key|}}
+    {{#if value.eaten_burger}}
+
+  <li>
+    <p>
+      {{key}}. {{value.name}}
+
+      <button class="eat" data-planid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >Return this {{value.name}} burger!</button>
+    </p>
+  </li>
+  {{/if}}
+  {{/each}}
+  
+</ul>
+    </div>
+        </div>
+
+
+{{!-- form to update plane --}}
+<div class="fourth">
+<h2>Update your burger</h2>
+<form id="updateburger" class="button-size">
+  <select name="id" id="selected">
+		{{#each data as |value key|}}
+            {{#unless value.eaten_burger}}
+			<option name="select" value="{{value.id}}">{{value.name}}</option>
+		{{/unless}}
+        {{/each}}
+	</select><br>
+  <textarea type="text" name="upburger" placeholder="Your Burger"></textarea><br>
+  <button id="update" type="submit">Update Plan!</button>
+</form>
+</div>
+
+
+
+ 
+
+
+
+
+
+
+
 
