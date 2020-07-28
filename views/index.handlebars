@@ -3,15 +3,17 @@
 {{!-- form to add burger to database --}}
 <div class="first">
 <form id="addBurger"  class="button-size">
-  <label for="bname">Add your Burger Name:</label><br>
-  <textarea type="text" id="bname" name="bname"></textarea><br>
-  <button id="submit" type="submit">Submit</button>
+  <label for="bname">Request any burger that you want from th Chef:</label><br>
+  <div class="text">
+     <textarea type="text" id="bname" name="bname"></textarea><br>
+    <button class="send" id="submit" type="submit">Submit</button>
+  </div>
 </form><br>
 </div>
 
     <div class="container">
 <div class="second">
-    <h1>List of Burgers</h1>
+    <h1>All you can eat Burger Bar</h1>
 <ul>
     
   {{#each data as |value key|}}
@@ -20,7 +22,7 @@
     <p>
       {{key}}. {{value.name}} Burger  
 
-      <button class="eat" data-planid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >Eat this {{value.name}} burger!</button>
+      <button class="eat" data-planid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >Take this {{value.name}} burger!</button>
     </p>
   </li>
   {{/unless}}
@@ -33,7 +35,7 @@
 <div class="third">
   
 
-    <h2>Burger to devour</h2>
+    <h2>Your Plate</h2>
   
 <ul>
     
@@ -42,11 +44,11 @@
 
   <li>
     <p>
-    <button class="delete" data-deleteid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >X</button>
+    <button class="delete" data-deleteid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >Devour It</button>
     
-      {{key}}. {{value.name}}
+      {{key}}. {{value.name}} Burger
 
-      <button class="eat" data-planid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >Return this {{value.name}} burger!</button>
+      <button class="eat" data-planid="{{value.id}}" data-state="{{value.name}}" data-condition="{{value.eaten_burger}}" >Return the {{value.name}} burger to the Chef!</button>
     </p>
   </li>
   {{/if}}
@@ -59,7 +61,7 @@
 
 {{!-- form to update plane --}}
 <div class="fourth">
-<h2>Update your burger</h2>
+<h2>Upgrade your burger</h2>
 <form id="updateburger" class="button-size">
   <select name="id" id="selected">
 		{{#each data as |value key|}}
@@ -68,13 +70,47 @@
 		{{/unless}}
         {{/each}}
 	</select><br>
-  <textarea type="text" name="upburger" placeholder="Your Burger"></textarea><br>
+  <textarea class="update_text" type="text" name="upburger" placeholder="Upgrade your burger from the bar"></textarea><br>
   <button id="update" type="submit">Update Plan!</button>
 </form>
 </div>
 
 
+<div class="separator">
+  <h1>How it works</h1>
+  
+    <h3>
+      This is a sample website showing the functionality of "Full
+    Stack Web Dev"
+    </h3>
 
+
+  <div class="explain">
+    <p>
+    Start by Inserting a data/burger:
+  </p>
+
+  {{#with data}}
+   {{#unless data.eaten_burger}}
+      1) Your data was sent to the backend via routes(Express+Http verbs) and saved to a SQL database. <br>
+      2) Also using routes your data was sent back to the front-end for user's interaction<br>
+  {{/unless}}
+  {{/with}}
+
+
+  {{#each data as |value key|}}
+     {{#if value.eaten_burger}}
+      3) Your Data was updated <br>
+      4) your data can now be deleted or updated again
+      {{/if}}
+  {{/each}}
+     
+
+  </div>
+
+    
+
+</div>
  
 
 

@@ -18,12 +18,13 @@ label{
     font-size: larger;
 }
 textarea{
-    width: 200px;
-    margin-bottom: 10%;
+    width: 50%;
+
 }
 .first{
 display: flex;
 align-self: center;
+margin-bottom: 50px;
 
 }
 
@@ -46,3 +47,48 @@ background-color: yellow;
     /* flex-direction: column; */
     margin-top: 10%;
     }
+
+.send{
+    display: flex;
+    flex-direction: row;
+
+}
+
+button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 1% 5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    transition-duration: 0.4s;
+  }
+
+  .separator{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+      margin-top: 50px;
+      padding-bottom: 50px;
+      align-items: center;
+      /* justify-content: center; */
+      background-color: white;
+      border-radius: 50px 50px 50px 50px;
+
+  }
+
+  .separator p{
+      font-size: 50px;
+  }
+  .text{
+      display: flex;
+  }
+
+  .send{
+     width: auto; 
+ }
+ .update_text{
+     width: auto;
+ }
